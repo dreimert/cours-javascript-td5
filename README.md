@@ -18,4 +18,4 @@ Au passage, pour les mêmes raisons, faites la commande suivante :
 
     npm config set proxy "http://cache.univ-st-etienne.fr:3128"
 
-Étape suivante : `git checkout etape-0`.
+Étape suivante : `git checkout etape-1`.
