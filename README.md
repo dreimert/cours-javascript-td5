@@ -54,11 +54,11 @@ Pour vérifier qu'une commande existe, il suffit de tester si elle existe dans `
 ```Javascript
 socket.on('cmd', function(cmd){
   // votre code...
-  const commandeName = ...;
-  const commandeArguments = ...;
+  const commandeName = /* ... */;
+  const commandeArguments = /* ... */;
 
   if(commandes[commandeName]){
-    commandes[commandeName](...commandeArguments);
+    commandes[commandeName](...commandeArguments); // ... est appelé opérateur de décomposition : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateur_de_d%C3%A9composition
     socket.emit('msg', "Commande bien reçu");
   } else {
     console.log("La commande n'existe pas !");
