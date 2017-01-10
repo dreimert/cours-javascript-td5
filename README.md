@@ -52,10 +52,10 @@ socket.on('cmd', function(cmd){ // exemple : cmd = "nom Luffy"
 Pour vérifier qu'une commande existe, il suffit de tester si elle existe dans `commandes`.
 
 ```Javascript
-socket.on('cmd', function(cmd){
+socket.on('cmd', function(cmd){ // exemple 2 : "commande avec des arguments"
   // votre code...
-  const commandeName = /* ... */;
-  const commandeArguments = /* ... */;
+  const commandeName = /* ... */; // exemple 2 : "commande"
+  const commandeArguments = /* ... */; // exemple 2 : ["avec", "des", "arguments"]
 
   if(commandes[commandeName]){
     commandes[commandeName](...commandeArguments); // ... est appelé opérateur de décomposition : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateur_de_d%C3%A9composition
