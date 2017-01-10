@@ -40,10 +40,10 @@ const commandes = {
 Il faut maintenant récupérer le nom de la commande tapée par l'utilisateur et vérifier qu'elle existe. Modifiez le code ci-après pour que `commandeName` contient le nom de la commande et que `commandeArguments` contienne les arguments. Pour vous aider, vous pouvez aller voir la [documentation de la fonction split](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/split) et [celle de la fonction slice](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/slice).
 
 ```Javascript
-socket.on('cmd', function(cmd){
+socket.on('cmd', function(cmd){ // exemple : cmd = "nom Luffy"
   // votre code...
-  const commandeName = ...;
-  const commandeArguments = ...;
+  const commandeName = ...; // exemple : commandeName = "nom"
+  const commandeArguments = ...; // exemple : commandeArguments = ["Luffy"]
 
   io.emit('msg', cmd);
 });
