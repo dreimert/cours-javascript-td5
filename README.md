@@ -178,6 +178,8 @@ Commencez par mettre une coordonnées par défaut à tout nos utilisateurs.
 
 > ### Q4 - Code met par défaut tous les utilisateurs à la coordonnée 0, 0. Pourquoi ?
 
+> Car par défaut Coord initialise x et y à 0.
+
 Fait en sorte que quand l'utilisateur se connect, il reçoive un message l'informant de sa position.
 
 Nous allons allons implémenter les commandes "nord", "sud", "ouest" et "est".

@@ -53,6 +53,8 @@ io.on('connection', function(socket){
   };
   console.log('a user connected :', socket.data.nom);
 
+  socket.emit('msg', `Vous êtes à la case ${socket.data.coord}`);
+
   socket.on('disconnect', function(){
     console.log('user disconnected');
   });
