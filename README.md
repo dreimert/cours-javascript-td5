@@ -163,6 +163,8 @@ Essayez de comprendre comment fonctionne ce code.
 
 > #### Q3 - Que fait la fonction `getCase` ?
 
+> Elle convertie la coordonnée en chaine de caractère puis regarde dans la carte si la case exsite. Si elle n'existe pas initialise la case. Dans tous les cas, retourne la case.
+
 Maintenant que le monde existe, il faut placer nos utilisateurs dedans.
 
 Commencez par mettre une coordonnées par défaut à tout nos utilisateurs.

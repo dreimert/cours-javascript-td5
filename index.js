@@ -48,7 +48,8 @@ const monde = new Monde();
 
 io.on('connection', function(socket){
   socket.data = {
-    nom: "Anonymous"
+    nom: "Anonymous",
+    coord: new Coord()
   };
   console.log('a user connected :', socket.data.nom);
 
