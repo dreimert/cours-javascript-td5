@@ -5,19 +5,27 @@ const commandes = {
     return `${last} a changé de nom pour ${nom}.`;
   },
   nord: function(socket) {
+    socket.data.case.removeSocket(socket);
     socket.data.case = socket.data.case.nord();
+    socket.data.case.addSocket(socket);
     socket.emit('msg', socket.data.case.toString());
   },
   sud: function(socket) {
+    socket.data.case.removeSocket(socket);
     socket.data.case = socket.data.case.sud();
+    socket.data.case.addSocket(socket);
     socket.emit('msg', socket.data.case.toString());
   },
   ouest: function(socket) {
+    socket.data.case.removeSocket(socket);
     socket.data.case = socket.data.case.ouest();
+    socket.data.case.addSocket(socket);
     socket.emit('msg', socket.data.case.toString());
   },
   est: function(socket) {
+    socket.data.case.removeSocket(socket);
     socket.data.case = socket.data.case.est();
+    socket.data.case.addSocket(socket);
     socket.emit('msg', socket.data.case.toString());
   },
   dire: function(socket, ...mots) {

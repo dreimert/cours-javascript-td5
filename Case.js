@@ -3,6 +3,7 @@ class Case {
     this.monde = monde;
     this.coord = coord;
     this.type = type;
+    this.personnages = [];
   }
 
   nord() {
@@ -19,6 +20,24 @@ class Case {
 
   est() {
     return this.monde.getCase(this.coord.est());
+  }
+
+  addSocket(socket) {
+    this.personnages.push(socket);
+  }
+
+  removeSocket(socket) {
+    const index = this.personnages.indexOf(socket);
+
+    if(index !== -1) {
+      this.personnages.splice(index, 1);
+    }
+  }
+
+  sendToMembers(msg) {
+    this.personnages.forEach(function(socket) {
+      socket.emit('msg', msg);
+    })
   }
 
   toString(){

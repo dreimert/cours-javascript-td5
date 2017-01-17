@@ -19,10 +19,13 @@ io.on('connection', function(socket){
   };
   console.log('a user connected :', socket.data.nom);
 
+  socket.data.case.addSocket(socket);
+
   socket.emit('msg', socket.data.case.toString());
 
   socket.on('disconnect', function(){
     console.log('user disconnected');
+    socket.data.case.removeSocket(socket);
   });
 
   socket.on('cmd', function(cmd){
@@ -33,7 +36,7 @@ io.on('connection', function(socket){
     if(commandes[commandeName]){
       const msg = commandes[commandeName](socket, ...commandeArguments);
       if(msg) {
-        io.emit('msg', msg);
+        socket.data.case.sendToMembers(msg);
       }
     } else {
       console.log("La commande n'existe pas !");
