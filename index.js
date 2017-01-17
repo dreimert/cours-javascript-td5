@@ -14,6 +14,38 @@ const commandes = {
   }
 };
 
+class Coord {
+  constructor(x = 0, y = 0) {
+    this.x = x;
+    this.y = y;
+  }
+
+  toString() {
+    return `${this.x},${this.y}`;
+  }
+}
+
+class Monde {
+  constructor() {
+    this.map = {};
+  }
+
+  getCase(coord) {
+    const coordString = coord.toString();
+
+    if(!this.map[coordString]){
+      this.map[coordString] = {
+        coord: coord,
+        type: "plaine"
+      };
+    }
+
+    return this.map[coordString];
+  }
+}
+
+const monde = new Monde();
+
 io.on('connection', function(socket){
   socket.data = {
     nom: "Anonymous"
