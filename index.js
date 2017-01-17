@@ -6,50 +6,9 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-const commandes = {
-  nom: function(socket, nom) {
-    const last = socket.data.nom;
-    socket.data.nom = nom;
-    return `${last} a changé de nom pour ${nom}.`;
-  },
-  nord: function(socket) {
-    socket.data.coord = socket.data.coord.nord();
-    socket.emit('msg', `Vous êtes maintenant à la case ${socket.data.coord}`);
-  },
-  sud: function(socket) {
-    socket.data.coord = socket.data.coord.sud();
-    socket.emit('msg', `Vous êtes maintenant à la case ${socket.data.coord}`);
-  },
-  ouest: function(socket) {
-    socket.data.coord = socket.data.coord.ouest();
-    socket.emit('msg', `Vous êtes maintenant à la case ${socket.data.coord}`);
-  },
-  est: function(socket) {
-    socket.data.coord = socket.data.coord.est();
-    socket.emit('msg', `Vous êtes maintenant à la case ${socket.data.coord}`);
-  }
-};
-
 const Coord = require('./Coord');
-
-class Monde {
-  constructor() {
-    this.map = {};
-  }
-
-  getCase(coord) {
-    const coordString = coord.toString();
-
-    if(!this.map[coordString]){
-      this.map[coordString] = {
-        coord: coord,
-        type: "plaine"
-      };
-    }
-
-    return this.map[coordString];
-  }
-}
+const Monde = require('./Monde');
+const commandes = require('./commandes');
 
 const monde = new Monde();
 
