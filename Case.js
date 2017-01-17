@@ -4,6 +4,7 @@ class Case {
     this.coord = coord;
     this.type = type;
     this.personnages = [];
+    this.panneau = null;
   }
 
   nord() {
@@ -40,13 +41,19 @@ class Case {
     })
   }
 
+  addPanneau(msg){
+    this.panneau = msg;
+  }
+
   toString(){
+    const panneau = this.panneau ? `Le panneau indique : ${this.panneau}.` : "";
     return `
       Vous êtes en ${this.coord} sur une ${this.type}.
       Au nord, il y a une ${this.nord().type}.
       Au sud, il y a une ${this.sud().type}.
       À l'ouest, il y a une ${this.ouest().type}.
       Et à l'est, il y a une ${this.est().type}.
+      ${panneau}
     `;
   }
 }

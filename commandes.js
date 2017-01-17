@@ -30,6 +30,10 @@ const commandes = {
   },
   dire: function(socket, ...mots) {
     return `${socket.data.nom} : ${mots.join(" ")}`;
+  },
+  panneau: function(socket, ...mots) {
+    socket.data.case.addPanneau(mots.join(' '));
+    return `${socket.data.nom} a changé le panneau pour : ${mots.join(' ')}.`;
   }
 };
 
