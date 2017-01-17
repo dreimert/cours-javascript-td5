@@ -35,7 +35,7 @@ io.on('connection', function(socket){
       socket.emit('msg', "La commande n'existe pas !");
     }
 
-    io.emit('msg', cmd);
+    io.emit('msg', socket.data.nom + " : " + cmd);
   });
 });
 
