@@ -7,8 +7,9 @@ app.get('/', function(req, res){
 });
 
 const commandes = {
-  nom: function(nom) {
+  nom: function(socket, nom) {
     console.log("L'utilisateur veut changer son nom pour ", nom);
+    socket.data.nom = nom;
   }
 };
 
@@ -28,7 +29,7 @@ io.on('connection', function(socket){
     const commandeArguments = params.slice(1); // exemple : commandeArguments = ["Luffy"]
 
     if(commandes[commandeName]){
-      commandes[commandeName](...commandeArguments); // ... est appelé opérateur de décomposition : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateur_de_d%C3%A9composition
+      commandes[commandeName](socket, ...commandeArguments); // ... est appelé opérateur de décomposition : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateur_de_d%C3%A9composition
       socket.emit('msg', "Commande bien reçu");
     } else {
       console.log("La commande n'existe pas !");
