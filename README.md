@@ -21,7 +21,7 @@ Voici une liste des fonctions minimales que doit permettre un MUD :
 
 Il faut que l'utilisateur puisse choisir un nom. Pour se faire, on va utiliser une commande qui pendra en paramètre le nom. Quelque chose de la forme : `nom monNom`. Pour des raisons de simplicité, il n'est pas possible d'avoir d'espace dans le nom.
 
-Pour être plus lisible, coté client, renommez `chat message` en `cmd` pour les événements émis et en `msg` pour les événements reçus. Faite les modifications appropriées coté serveur pour que le chat continu de fonctionner.
+Pour être plus lisible, coté client c.-à-d. le code executé par le navigateur, renommez `chat message` en `cmd` pour les événements émis et en `msg` pour les événements reçus. Faite les modifications appropriées coté serveur, c.-à-d. le code executé par node, pour que le chat continu de fonctionner.
 
 Au niveau du client, il n'y a rien à changer, l'utilisateur peut déjà taper du texte. Il faut modifier le serveur pour qu'il traite correctement la commande de l'utilisateur. 
 
