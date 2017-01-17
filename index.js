@@ -15,11 +15,11 @@ const monde = new Monde();
 io.on('connection', function(socket){
   socket.data = {
     nom: "Anonymous",
-    coord: new Coord()
+    case: monde.getCase(new Coord())
   };
   console.log('a user connected :', socket.data.nom);
 
-  socket.emit('msg', `Vous êtes à la case ${socket.data.coord}`);
+  socket.emit('msg', socket.data.case.toString());
 
   socket.on('disconnect', function(){
     console.log('user disconnected');

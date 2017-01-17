@@ -1,3 +1,5 @@
+const Case = require('./Case');
+
 class Monde {
   constructor() {
     this.map = {};
@@ -7,10 +9,7 @@ class Monde {
     const coordString = coord.toString();
 
     if(!this.map[coordString]){
-      this.map[coordString] = {
-        coord: coord,
-        type: "plaine"
-      };
+      this.map[coordString] = new Case(this, coord, "plaine");
     }
 
     return this.map[coordString];
