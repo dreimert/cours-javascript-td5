@@ -23,7 +23,7 @@ Il faut que l'utilisateur puisse choisir un nom. Pour se faire, on va utiliser u
 
 Pour être plus lisible, coté client c.-à-d. le code executé par le navigateur, renommez `chat message` en `cmd` pour les événements émis et en `msg` pour les événements reçus. Faite les modifications appropriées coté serveur, c.-à-d. le code executé par node, pour que le chat continu de fonctionner.
 
-Au niveau du client, il n'y a rien à changer, l'utilisateur peut déjà taper du texte. Il faut modifier le serveur pour qu'il traite correctement la commande de l'utilisateur. 
+Au niveau du client, il n'y a rien à changer, l'utilisateur peut déjà taper du texte. Il faut modifier le serveur pour qu'il traite correctement la commande de l'utilisateur.
 
 Au niveau du serveur, il faut maintenant analyser les commandes reçues pour effectuer l'action l'action voulu. Une commande a un nom et peut être suivi de paramètres. Pour connaitre le nom de la commande, il suffit de récupérer le premier mot. Il faut ensuite comparait ce nom avec la liste des commandes disponibles.
 
@@ -38,6 +38,8 @@ const commandes = {
 ```
 
 > #### Q1 - Que fait ce code ?
+
+> Il déclare un objet qui a une propriété nom qui est une fonction.
 
 Il faut maintenant récupérer le nom de la commande tapée par l'utilisateur et vérifier qu'elle existe. Modifiez le code ci-après pour que `commandeName` contient le nom de la commande et que `commandeArguments` contienne les arguments. Pour vous aider, vous pouvez aller voir la [documentation de la fonction split](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/split) et [celle de la fonction slice](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/String/slice).
 
