@@ -24,8 +24,13 @@ io.on('connection', function(socket){
     const commandeName = params[0]; // exemple : commandeName = "nom"
     const commandeArguments = params.slice(1); // exemple : commandeArguments = ["Luffy"]
 
-    console.log(commandeName);
-    console.log(commandeArguments);
+    if(commandes[commandeName]){
+      commandes[commandeName](...commandeArguments); // ... est appelé opérateur de décomposition : https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Op%C3%A9rateurs/Op%C3%A9rateur_de_d%C3%A9composition
+      socket.emit('msg', "Commande bien reçu");
+    } else {
+      console.log("La commande n'existe pas !");
+      socket.emit('msg', "La commande n'existe pas !");
+    }
 
     io.emit('msg', cmd);
   });
