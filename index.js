@@ -13,7 +13,10 @@ const commandes = {
 };
 
 io.on('connection', function(socket){
-  console.log('a user connected');
+  socket.data = {
+    nom: "Anonymous"
+  };
+  console.log('a user connected :', socket.data.nom);
 
   socket.on('disconnect', function(){
     console.log('user disconnected');

@@ -77,6 +77,9 @@ Tester votre code avec plusieurs onglets.
 
 > #### Q2 - Quel est la différence entre `socket.emit` et `io.emit` ?
 
+> socket.emit n'envoie les données qu'au client.
+> io.emit envoie à tout le monde.
+
 Vous récupérez la commande et le nom de l'utilisateur mais on ne modifie rien pour le moment. Commençons par mettre un nom par défaut à tous les utilisateurs à `"Anonymous"`. Pour ce faire, pour chaque socket et à sa connexion, on associe un object à la socket qui contient un champs *nom* contenant `"Anonymous"`
 
 ```Javascript
