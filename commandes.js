@@ -19,6 +19,9 @@ const commandes = {
   est: function(socket) {
     socket.data.case = socket.data.case.est();
     socket.emit('msg', socket.data.case.toString());
+  },
+  dire: function(socket, ...mots) {
+    return `${socket.data.nom} : ${mots.join(" ")}`;
   }
 };
 
