@@ -13,9 +13,9 @@ io.on('connection', function(socket){
     console.log('user disconnected');
   });
 
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  }); 
+  socket.on('cmd', function(msg){
+    io.emit('msg', msg);
+  });
 });
 
 http.listen(3000, function(){
